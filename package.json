@@ -1,0 +1,27 @@
+{
+  "name": "repomind-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "RepoMind AI — chat with any GitHub codebase using RAG",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server",
+    "test": "npm run test -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4",
+    "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "faiss-node@0.5.1": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.25.12": true,
+    "protobufjs@7.6.6": true
+  }
+}
