@@ -8,7 +8,7 @@ import { startIndexingWorker } from './services/ingestion/queue.js';
 const start = async () => {
   await connectDB();
   startIndexingWorker();
-  app.listen(env.PORT, () => {
+  app.listen(env.PORT, '0.0.0.0', () => {
     logger.info(`🚀 RepoMind AI server running on http://localhost:${env.PORT} [${env.NODE_ENV}]`);
   });
 };
